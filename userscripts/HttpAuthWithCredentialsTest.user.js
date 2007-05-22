@@ -12,7 +12,7 @@
 // @namespace     http://gandrew.com/projects/GreasemonkeyImports/
 // @description   A test for a dependency that requires http authentication
 // @include       http://www.gandrew.com/projects/GreasemonkeyImports/test.html
-// @import test http://user:password@localhost/eclipse/GreasemonkeyImports/userscripts/protected/protected.txt
+// @import test http://user:password@gandrew.com/projects/GreasemonkeyImports/userscripts/protected/protected.txt
 // ==/UserScript==
 
 document.body.innerHTML = "";
