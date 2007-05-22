@@ -1,0 +1,5 @@
+AuthName "Restricted Area" 
+AuthType Basic 
+AuthUserFile /home/1439/domains/gandrew.com/html/projects/GreasemonkeyImports/userscripts/protected/.htpasswd
+#AuthUserFile F:\ga\workspace\GreasemonkeyImports\userscripts\protected\.htpasswd 
+require valid-user
