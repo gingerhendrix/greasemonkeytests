@@ -10,10 +10,10 @@
 // ==/UserScript==
 
 new Test("TextImportsTest", function(test){
-  var content = GM_getImportContent("test");
+  var content = GM_getImportText("test");
   test.assert(content == "This is some test text", "Content not correct - '"+content+"'");
   
-  content = GM_getImportContent("test2");
+  content = GM_getImportText("test2");
   test.assert(content == "This is some more test text", "Content not correct - '"+content+"'");
 });
 

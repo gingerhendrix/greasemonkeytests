@@ -15,6 +15,7 @@
 END;
   header('Content-type: text/javascript');
   
+  
   $content = $_GET['content'];
   $userscript = get_include_contents($content);
     echo $userscript;

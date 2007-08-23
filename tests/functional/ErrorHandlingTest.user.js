@@ -10,7 +10,7 @@
 
 new Test("ErrorHandlingTest", 
   function(test){
-    test.log("There should be an error in the console pointing to error.js");
+    test.log("There should be an error in the console pointing to error.js line 6");
     try{
       codeError();
       test.fail("Error not thrown");
