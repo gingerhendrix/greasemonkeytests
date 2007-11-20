@@ -1,4 +1,5 @@
 <?php
+  $filename = $_GET['content'];
 	$namespace = "http://gandrew.com/projects/GreasemonkeyImports/";
   $testHarness = "http://localhost/eclipse/GreasemonkeyImports/test.php*";
   $header = <<<END
@@ -16,9 +17,9 @@ END;
   header('Content-type: text/javascript');
   
   
-  $content = $_GET['content'];
-  $userscript = get_include_contents($content);
-    echo $userscript;
+
+  $userscript = get_include_contents($filename);
+  echo $userscript;
     
   function get_include_contents($filename) {
 	  global $namespace;

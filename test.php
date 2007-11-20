@@ -1,4 +1,6 @@
 <?php
+  $importsServiceURL = "../GreasemonkeyImportsService/v2/greasemonkeyimports.php";
+
   function getDescription($userscript){
     if($meta = getMeta($userscript)){
        $pattern = '/\/{2} *(@description)\s*(.*)/';
@@ -15,7 +17,11 @@
     }
   }
 
-$suite = $_GET["suite"] ? $_GET["suite"] : "functional";
+$suite = $_GET["suite"];
+if(!$suite){
+  header('Location: '.$_SERVER[REQUEST_URI].'?suite=functional');
+}
+$useImportsService = $_GET["useImportsService"] ? true : false;
 ?>
 <html>
 <title>Greasemonkey Test Harness</title>
@@ -115,6 +121,21 @@ body{
   display: block;
 }
 
+ul.tests {
+ margin-left: 4em;
+}
+
+.tests li.success {
+  color: #006600;
+  font-weight: bold;
+}
+
+.tests li.failure, .tests li.error {
+  color: #660000;
+  font-weight: bold;
+}
+
+
 #suites ul{
   
 }
@@ -140,7 +161,11 @@ body{
 
 <body>
 <h1>Greasemonkey Tests</h1>
-
+<?php if($useImportsService){ ?>
+<span>Using import service</span>
+<?php } else { ?>
+<span>Not using import service</span>
+<?php }?>
 <div id="suites">
 <span>Available suites: </span>
 <ul>
@@ -185,8 +210,19 @@ if ($dh = opendir($dir)) {
   <span class="result msg_passed">Passed</span>
   <span class="result msg_failure">Failure</span>
   <span class="result msg_error">Error</span>
-  <a href="<?php echo $dir . $file . "?" . time() . '.user.js'; ?>" class="install">install</a>
-  <a href="<?php echo $dir . $file; ?>#" class="viewsource">view source</a>
+  <?php if($useImportsService){ 
+     $url = $importsServiceURL . "?url=http://localhost/eclipse/GreasemonkeyImports/" . $dir . $file . "&" . time() . ".user.js";
+  ?>
+    <a href='<?php echo $url; ?>' class="install">install</a>
+    <a href="<?php echo $url; ?>#" class="viewsource">view source</a>
+  <?php } else { ?>
+    <a href="<?php echo $dir . $file . "?" . time() . '.user.js'; ?>" class="install">install</a>
+    <a href="<?php echo $dir . $file; ?>#" class="viewsource">view source</a>
+  <?php }  ?>
+  
+  <ul class="tests">
+    
+  </ul>
 
   <span class="logTitle">Log</span>  
   <div class="log">
