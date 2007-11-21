@@ -4,7 +4,9 @@
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
 // @require       ../../../GMTest/js/Test.js
+// @require       ../../../GMTest/js/TestSuite.js
 // @require       ../../../GMTest/js/TestRunner.js
+// @require       ../../../GMTest/js/AbstractTestRunner.js
 // @require       ../../../GMTest/js/SimpleTestRunner.js
 // @require       ../../../GMTest/js/GreasemonkeyTestRunner.js
 //
@@ -50,8 +52,9 @@ function extractTestSource(file){
   var e = testFileContents.lastIndexOf(testEnd);
   return testFileContents.substring(s,e)
 }
-
+var suiteName;
 ["base", "array", "string", "enumerable", "number"].forEach(function(test){
+  suiteName = test;
   eval(extractTestSource(test))
 });
 

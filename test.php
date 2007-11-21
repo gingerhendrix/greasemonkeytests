@@ -125,12 +125,12 @@ ul.tests {
  margin-left: 4em;
 }
 
-.tests li.success {
+.tests .success {
   color: #006600;
   font-weight: bold;
 }
 
-.tests li.failure, .tests li.error {
+.tests .failure, .tests .error {
   color: #660000;
   font-weight: bold;
 }
@@ -206,7 +206,7 @@ if ($dh = opendir($dir)) {
 <div class="test notinstalled" id="<?php echo $camelName; ?>">
   <span class="name"><?php echo $name; ?></span>
   <span class="description"><?php echo $description ?></span>
-  <span class="result msg_notinstalled">Not installed</span>
+  <span class="result msg_notinstalled">Not Run</span>
   <span class="result msg_passed">Passed</span>
   <span class="result msg_failure">Failure</span>
   <span class="result msg_error">Error</span>
