@@ -4,7 +4,11 @@
 // @description   Test importing a text file
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
-// @require       ../../lib/GMUnit.js
+// @require       ../../../GMTest/js/Test.js
+// @require       ../../../GMTest/js/AbstractTestRunner.js
+// @require       ../../../GMTest/js/SimpleTestRunner.js
+// @require       ../../../GMTest/js/GreasemonkeyTestRunner.js
+// @require       ../../../GMTest/js/TestManager.js
 // @import test   ../../lib/test1.txt
 // @import ../../lib/test2.txt
 // ==/UserScript==
@@ -20,3 +24,5 @@ new Test("TextImportsTest", function(test){
   
 });
 
+TestManager.runner = new GreasemonkeyTestRunner("TextImportsTest");
+TestManager.run();

@@ -4,7 +4,11 @@
 // @description  Tests importing an image
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
-// @require       ../../lib/GMUnit.js
+// @require       ../../../GMTest/js/Test.js
+// @require       ../../../GMTest/js/AbstractTestRunner.js
+// @require       ../../../GMTest/js/SimpleTestRunner.js
+// @require       ../../../GMTest/js/GreasemonkeyTestRunner.js
+// @require       ../../../GMTest/js/TestManager.js 
 // @import 	image ../../lib/image.jpg
 // @import 	text ../../lib/test1.txt
 // @import 	shift-jis-text ../../lib/shift-jis-text.php
@@ -43,3 +47,6 @@ new Test("GetImportUrlTest", function(test){
   }
   
 });
+
+TestManager.runner = new GreasemonkeyTestRunner("GetImportUrlTest");
+TestManager.run();

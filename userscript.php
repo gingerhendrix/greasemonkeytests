@@ -1,7 +1,13 @@
 <?php
   $filename = $_GET['content'];
+  $suiteArray = array_slice(explode("/", $filename), 1, -1);
+  if(sizeof($suiteArray)>0){
+    $suite = $suiteArray[0];
+  }else{
+    $suite = '*';
+  }
 	$namespace = "http://gandrew.com/projects/GreasemonkeyImports/";
-  $testHarness = "http://localhost/eclipse/GreasemonkeyImports/test.php*";
+  $testHarness = "http://localhost/eclipse/GreasemonkeyImports/test.php?suite=$suite";
   $header = <<<END
 // Tests for Greasemonkey
 // version 0.1

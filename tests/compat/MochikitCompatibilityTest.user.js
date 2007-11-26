@@ -4,9 +4,10 @@
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
 // @require       ../../../GMTest/js/Test.js
-// @require       ../../../GMTest/js/TestRunner.js
+// @require       ../../../GMTest/js/AbstractTestRunner.js
 // @require       ../../../GMTest/js/SimpleTestRunner.js
 // @require       ../../../GMTest/js/GreasemonkeyTestRunner.js
+// @require       ../../../GMTest/js/TestManager.js
 // @require       ../../MochiKit/Base.js
 // @require       ../../MochiKit/Iter.js
 // @require       ../../MochiKit/DOM.js
@@ -120,5 +121,5 @@ new Test("DOMTest",
   }
 );
 
-TestRunner.runner = new GreasemonkeyTestRunner("MochikitCompatibilityTest");
-TestRunner.run();
+TestManager.runner = new GreasemonkeyTestRunner("MochikitCompatibilityTest");
+TestManager.run();
