@@ -1,1 +1,0 @@
-This is the text of somefolder/test1.txt
