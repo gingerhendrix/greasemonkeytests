@@ -3,12 +3,13 @@
 // @description   Runs MochiKit Tests in Greasemonkey Environment
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
-// @require       ../../../GMTest/js/Test.js
-// @require       ../../../GMTest/js/TestSuite.js
-// @require       ../../../GMTest/js/TestManager.js
-// @require       ../../../GMTest/js/AbstractTestRunner.js
-// @require       ../../../GMTest/js/SimpleTestRunner.js
-// @require       ../../../GMTest/js/GreasemonkeyTestRunner.js
+// @require       ../../../MonkeyTest/js/Test.js
+// @require       ../../../MonkeyTest/js/TestSuite.js
+// @require       ../../../MonkeyTest/js/BaseTestRunner.js
+// @require       ../../../MonkeyTest/js/AbstractTestRunner.js
+// @require       ../../../MonkeyTest/js/SimpleTestRunner.js
+// @require       ../../../MonkeyTest/js/GreasemonkeyTestRunner.js
+// @require       ../../../MonkeyTest/js/TestManager.js
 //
 // @require       ../../lib/prototypeCompat.js
 //

@@ -6,8 +6,8 @@
   }else{
     $suite = '*';
   }
-	$namespace = "http://gandrew.com/projects/GreasemonkeyImports/";
-  $testHarness = "http://localhost/eclipse/GreasemonkeyImports/test.php?suite=$suite";
+	$namespace = "http://gandrew.com/projects/GreasemonkeyTests/";
+  $testHarness = "http://localhost/eclipse/GreasemonkeyTests/index.php?suite=$suite";
   $header = <<<END
 // Tests for Greasemonkey
 // version 0.1

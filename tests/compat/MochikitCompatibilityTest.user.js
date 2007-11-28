@@ -3,28 +3,29 @@
 // @description   Runs MochiKit Tests in Greasemonkey Environment
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
-// @require       ../../../GMTest/js/Test.js
-// @require       ../../../GMTest/js/AbstractTestRunner.js
-// @require       ../../../GMTest/js/SimpleTestRunner.js
-// @require       ../../../GMTest/js/GreasemonkeyTestRunner.js
-// @require       ../../../GMTest/js/TestManager.js
-// @require       ../../MochiKit/Base.js
-// @require       ../../MochiKit/Iter.js
-// @require       ../../MochiKit/DOM.js
-// @require       ../../MochiKit/Color.js
-// @require       ../../MochiKit/DateTime.js
-// @require       ../../MochiKit/Format.js
-// @require       ../../MochiKit/Logging.js
-// @require       ../../MochiKit/Signal.js
-// @require       ../../MochiKit/MockDOM.js
-// @require       ../../MochiKit/tests/test_Base.js
-// @require       ../../MochiKit/tests/test_Iter.js
-// @require       ../../MochiKit/tests/test_Color.js
-// @require       ../../MochiKit/tests/test_DateTime.js
-// @require       ../../MochiKit/tests/test_Format.js
-// @require       ../../MochiKit/tests/test_Logging.js
-// @require       ../../MochiKit/tests/test_Signal.js
-// @require       ../../MochiKit/tests/test_DOM.js
+// @require       ../../../MonkeyTest/js/Test.js
+// @require       ../../../MonkeyTest/js/BaseTestRunner.js
+// @require       ../../../MonkeyTest/js/AbstractTestRunner.js
+// @require       ../../../MonkeyTest/js/SimpleTestRunner.js
+// @require       ../../../MonkeyTest/js/GreasemonkeyTestRunner.js
+// @require       ../../../MonkeyTest/js/TestManager.js
+// @require       ../../lib/MochiKit/Base.js
+// @require       ../../lib/MochiKit/Iter.js
+// @require       ../../lib/MochiKit/DOM.js
+// @require       ../../lib/MochiKit/Color.js
+// @require       ../../lib/MochiKit/DateTime.js
+// @require       ../../lib/MochiKit/Format.js
+// @require       ../../lib/MochiKit/Logging.js
+// @require       ../../lib/MochiKit/Signal.js
+// @require       ../../lib/MochiKit/MockDOM.js
+// @require       ../../lib/MochiKit/tests/test_Base.js
+// @require       ../../lib/MochiKit/tests/test_Iter.js
+// @require       ../../lib/MochiKit/tests/test_Color.js
+// @require       ../../lib/MochiKit/tests/test_DateTime.js
+// @require       ../../lib/MochiKit/tests/test_Format.js
+// @require       ../../lib/MochiKit/tests/test_Logging.js
+// @require       ../../lib/MochiKit/tests/test_Signal.js
+// @require       ../../lib/MochiKit/tests/test_DOM.js
 // ==/UserScript==
 
 var simpleTest = function(test){

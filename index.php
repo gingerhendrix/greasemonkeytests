@@ -97,6 +97,11 @@ body{
   display: block;
 }
 
+.test.running{
+  background-color: #aaaaff;
+}
+
+
 .test.passed{
   background-color: #aaffaa;
 }
@@ -176,7 +181,7 @@ if ($dh = opendir($dir)) {
    if(filetype($dir . $file) == "dir" && preg_match("/^\./", $file)==0){
 ?>
 <li>
-  <a href="test.php?suite=<?php echo $file ?>" 
+  <a href="index.php?suite=<?php echo $file ?>" 
      <?php if(strcmp($file, $suite)==0){ echo "class='selected'"; } ?>
   >
     <?php echo $file ?>
