@@ -45,20 +45,48 @@
 
 
 var testSuites = {};
-["base", "array", "string", "enumerable", "number", "range", "ajax",/* "dom",*/ "selector", "form"].forEach(function(test){
-  testSuites[test] =  addPrototypeTestSourceAsSuite(test, extractPrototypeTestSource(GM_getImportText(test)))
+[/*"base", "array", "string"*/  "enumerable" /*, "number", "range", "ajax", "dom", "selector", "form"*/].forEach(function(test){
+  testSuites[test] =  addPrototypeTestSourceAsSuite(test, extractPrototypeTestSource(GM_getImportText(test)));
 });
-
+/*
 testSuites["array"].setUp = function(t){
   var testNode = document.createElement("div");
   testNode.setAttribute("id", "test_node");
   testNode.innerHTML = '22<span id="span_1"></span><span id="span_2"></span>' 
   document.body.appendChild(testNode);
 }
+
+testSuites["array"].tests[1].body  = function(t){
+    t.fail("Fails due to element.update not being defined - revisit once DOM is working");
+    $(element).update('22<span></span><span></span');
+}
 testSuites["array"].tearDown = function(t){
   var testNode = document.getElementById("test_node");
   document.body.removeChild(testNode);
 }
+//testSuites["array"].asynchronous = true;
 
+
+testSuites["string"].tests[17].body = function(t){
+  t.fail("Failure Expected: Can't work since it relies on inserted <script> elements sharing the same global scope as the test");
+}
+
+testSuites["string"].tests[39].body = function(t){
+  t.fail("Failure Expected: Can't work since it relies on inserted <script> elements sharing the same global scope as the test");
+}
+*/
+
+testSuites["enumerable"].setUp = function(t){
+    var testNode = document.createElement("div");
+    testNode.setAttribute("id", "test_node");
+    testNode.innerHTML = '<table id="grepTable"><tbody id="grepTBody"><tr id="grepRow"><th id="grepHeader" class="cell"></th><td id="grepCell" class="cell"></td>  </tr></tbody></table>'
+    document.body.appendChild(testNode);
+}
+
+testSuites["enumerable"].tearDown = function(t){
+  var testNode = document.getElementById("test_node");
+  document.body.removeChild(testNode);
+}
 TestManager.runner = new GreasemonkeyTestRunner("PrototypeCompatibilityTest");
+TestManager.asynchronous = true;
 TestManager.run();
