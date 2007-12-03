@@ -373,7 +373,7 @@
 <!-- Tests follow -->
 <script type="text/javascript" language="javascript" charset="utf-8">
 // <![CDATA[
-
+  //Blah
   var testVar = 'to be updated', testVar2 = '';
   var getInnerHTML = function(id) {
     return $(id).innerHTML.toString().toLowerCase().gsub(/[\r\n\t]/, '');
@@ -383,7 +383,7 @@
     p.appendChild(document.createTextNode(text));
     return p;
   }
-  Element.addMethods({
+ /* Element.addMethods({
     hashBrowns: function(element) { return 'hash browns'; }
   });
 
@@ -398,7 +398,7 @@
   Element.addMethods($w("li div"), {
     orangeJuice: function(element) { return "orange juice"; }
   });
-
+*/
   new Test.Unit.Runner({
 
     testDollarFunction: function() { with(this) {

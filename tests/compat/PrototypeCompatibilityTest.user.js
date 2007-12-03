@@ -45,10 +45,10 @@
 
 
 var testSuites = {};
-[/*"base", "array", "string"*/  "enumerable" /*, "number", "range", "ajax", "dom", "selector", "form"*/].forEach(function(test){
+["base", "array", "string",  "enumerable",  "number",  "range",  "ajax",   "dom",  "selector", "form"].forEach(function(test){
   testSuites[test] =  addPrototypeTestSourceAsSuite(test, extractPrototypeTestSource(GM_getImportText(test)));
 });
-/*
+
 testSuites["array"].setUp = function(t){
   var testNode = document.createElement("div");
   testNode.setAttribute("id", "test_node");
@@ -74,7 +74,6 @@ testSuites["string"].tests[17].body = function(t){
 testSuites["string"].tests[39].body = function(t){
   t.fail("Failure Expected: Can't work since it relies on inserted <script> elements sharing the same global scope as the test");
 }
-*/
 
 testSuites["enumerable"].setUp = function(t){
     var testNode = document.createElement("div");
@@ -87,6 +86,22 @@ testSuites["enumerable"].tearDown = function(t){
   var testNode = document.getElementById("test_node");
   document.body.removeChild(testNode);
 }
+
+
+
+testSuites["ajax"].setUp = function(t){
+  var testNode = document.createElement("div");
+  testNode.setAttribute("id", "test_node");
+  testNode.innerHTML = '<div id="testlog"> </div><div id="content"></div><div id="content2" style="color:red"></div>'
+  document.body.appendChild(testNode);
+}
+
+testSuites["ajax"].tearDown = function(t){
+  var testNode = document.getElementById("test_node");
+  document.body.removeChild(testNode);
+}
+
+
 TestManager.runner = new GreasemonkeyTestRunner("PrototypeCompatibilityTest");
 TestManager.asynchronous = true;
 TestManager.run();
