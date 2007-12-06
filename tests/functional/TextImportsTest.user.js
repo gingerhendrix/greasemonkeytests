@@ -1,28 +1,29 @@
 <?php echo $header ?>
 // ==UserScript==
-// @name          TextImportsTest
-// @description   Test importing a text file
+// @name          ResourcesTest
+// @description   Test resources 
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
-// @require       ../../../GMTest/js/Test.js
-// @require       ../../../GMTest/js/AbstractTestRunner.js
-// @require       ../../../GMTest/js/SimpleTestRunner.js
-// @require       ../../../GMTest/js/GreasemonkeyTestRunner.js
-// @require       ../../../GMTest/js/TestManager.js
-// @import test   ../../lib/test1.txt
-// @import ../../lib/test2.txt
+// @require       ../../../MonkeyTest/js/Test.js
+// @require       ../../../MonkeyTest/js/AbstractTestRunner.js
+// @require       ../../../MonkeyTest/js/BaseTestRunner.js
+// @require       ../../../MonkeyTest/js/SimpleTestRunner.js
+// @require       ../../../MonkeyTest/js/GreasemonkeyTestRunner.js
+// @require       ../../../MonkeyTest/js/TestManager.js
+// @resource test ../../lib/test1.txt
+// @resource test2    ../../lib/test2.txt
 // ==/UserScript==
 
-new Test("TextImportsTest", function(test){
-  var content = GM_getImportText("test");
+new Test("ResourcesTest", function(test){
+  var content = GM_getResourceText("test");
   test.log("Contents of test1.txt: "  + content);
   test.assert(content == "This is some test text", "Content not correct - '"+content+"'");
   
-  content = GM_getImportText("test2.txt");
+  content = GM_getResourceText("test2");
   test.log("Contents of test2.txt: "  + content);
   test.assert(content == "This is some more test text", "Content not correct - '"+content+"'");
   
 });
 
-TestManager.runner = new GreasemonkeyTestRunner("TextImportsTest");
+TestManager.runner = new GreasemonkeyTestRunner("ResourcesTest");
 TestManager.run();
