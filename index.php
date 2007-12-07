@@ -25,7 +25,6 @@ $useImportsService = $_GET["useImportsService"] ? true : false;
 ?>
 <html>
 <title>Greasemonkey Test Harness</title>
-<script src="MochiKit/MochiKit.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/reset/reset-min.css"> 
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/base/base-min.css">
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/fonts/fonts-min.css"> 
