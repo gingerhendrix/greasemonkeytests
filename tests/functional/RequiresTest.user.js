@@ -19,6 +19,7 @@
 
 new Test("RequiresTest", function(test){
     test.assert(someFunc, "someFunc does not exist");
+    test.log("Library function body: " + someFunc.toSource());
     test.assert(someFunc instanceof Function, "someFunc is not a function");
     test.assert(someFunc(), "someFunc does not return true");
 });
