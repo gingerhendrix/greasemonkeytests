@@ -32,11 +32,17 @@ new TestSuite("GM_getResourceText Tests", {
     test.assert(content == "This is some more test text", "Content not correct - '"+content+"'");
   },
   testInvalidResourceName : function(test){
-    
+    try{
+      var content = GM_getResourceText("blah");
+      fail("Exception expected");
+    }catch(e){
+      test.assert(e.name == "Error", "Unexpected name " + e.name);
+      test.assert(e.message == "No resource with name: blah", "Unexpected message " + e.message);
+    }
   }}
 );
 
-new TestSuite("GM_getResourceUrl Tests", {
+new TestSuite("GM_getResourceURL Tests", {
   testImage  : function(test){
     var url = GM_getResourceURL("image");
     test.assert(url, "import does not exist");
@@ -61,7 +67,13 @@ new TestSuite("GM_getResourceUrl Tests", {
     test.log("<img src='"+GM_getResourceURL("shift-jis-image")+"'></img");
   },
   testInvalidResourceName : function(test){
-    
+    try{
+      var content = GM_getResourceURL("blah");
+      fail("Exception expected");
+    }catch(e){
+      test.assert(e.name == "Error", "Unexpected name " + e.name);
+      test.assert(e.message == "No resource with name: blah", "Unexpected message " + e.message);
+    }
   } 
 }
 );
