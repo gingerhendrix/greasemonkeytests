@@ -6,8 +6,3 @@
 // @include       <?php echo $testHarness ?> 
 // ==/UserScript==
 
-var testEl = document.getElementById("InstallationSanityTest");
-var classes = testEl.getAttribute("class");
-classes = "test passed"
-testEl.setAttribute("class", classes);
-
