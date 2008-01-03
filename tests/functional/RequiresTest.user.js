@@ -23,7 +23,7 @@ new Test("RequiresTest", function(test){
     test.assert(someFunc instanceof Function, "someFunc is not a function");
     test.assert(someFunc(), "someFunc does not return true");
 });
-/* Not going to work - test library throws errors in a new call stack - greasemonkey can't
+/* Won't work - test library throws errors in a new call stack - greasemonkey can't
  * intercept errors outside its own call stack
  */
 /*new TestSuite("ErrorHandling Tests", {

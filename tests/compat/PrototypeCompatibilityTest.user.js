@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name          PrototypeCompatibilityTest
-// @description   Runs MochiKit Tests in Greasemonkey Environment
+// @description   Runs Prototype Tests in Greasemonkey Environment
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
 // @require       ../../../MonkeyTest/js/Test.js
@@ -30,23 +30,23 @@
 // @require       ../../lib/prototype/test/lib/unittest.js
 // @require       ../../lib/prototypeTestAdapter.js
 //
-// @import       base ../../lib/prototype/test/unit/base.html
-// @import       array ../../lib/prototype/test/unit/array.html
-// @import       string ../../lib/prototype/test/unit/string.html
-// @import       enumerable ../../lib/prototype/test/unit/enumerable.html
-// @import       number ../../lib/prototype/test/unit/number.html
-// @import       hash ../../lib/prototype/test/unit/hash.html
-// @import       range ../../lib/prototype/test/unit/range.html
-// @import       ajax ../../lib/prototype/test/unit/ajax.html
-// @import       dom ../../lib/prototype/test/unit/dom.html
-// @import       selector ../../lib/prototype/test/unit/selector.html
-// @import       form ../../lib/prototype/test/unit/form.html
+// @resource       base ../../lib/prototype/test/unit/base.html
+// @resource       array ../../lib/prototype/test/unit/array.html
+// @resource       string ../../lib/prototype/test/unit/string.html
+// @resource       enumerable ../../lib/prototype/test/unit/enumerable.html
+// @resource       number ../../lib/prototype/test/unit/number.html
+// @resource       hash ../../lib/prototype/test/unit/hash.html
+// @resource       range ../../lib/prototype/test/unit/range.html
+// @resource       ajax ../../lib/prototype/test/unit/ajax.html
+// @resource       dom ../../lib/prototype/test/unit/dom.html
+// @resource       selector ../../lib/prototype/test/unit/selector.html
+// @resource       form ../../lib/prototype/test/unit/form.html
 // ==/UserScript==
 
 
 var testSuites = {};
 ["base", "array", "string",  "enumerable",  "number",  "range",  "ajax",   "dom",  "selector", "form"].forEach(function(test){
-  testSuites[test] =  addPrototypeTestSourceAsSuite(test, extractPrototypeTestSource(GM_getImportText(test)));
+  testSuites[test] =  addPrototypeTestSourceAsSuite(test, extractPrototypeTestSource(GM_getResourceText(test)));
 });
 
 testSuites["array"].setUp = function(t){
@@ -64,8 +64,6 @@ testSuites["array"].tearDown = function(t){
   var testNode = document.getElementById("test_node");
   document.body.removeChild(testNode);
 }
-//testSuites["array"].asynchronous = true;
-
 
 testSuites["string"].tests[17].body = function(t){
   t.fail("Failure Expected: Can't work since it relies on inserted <script> elements sharing the same global scope as the test");
@@ -87,8 +85,6 @@ testSuites["enumerable"].tearDown = function(t){
   document.body.removeChild(testNode);
 }
 
-
-
 testSuites["ajax"].setUp = function(t){
   var testNode = document.createElement("div");
   testNode.setAttribute("id", "test_node");
@@ -103,5 +99,4 @@ testSuites["ajax"].tearDown = function(t){
 
 
 TestManager.runner = new GreasemonkeyTestRunner("PrototypeCompatibilityTest");
-TestManager.asynchronous = true;
 TestManager.run();

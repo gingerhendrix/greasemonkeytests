@@ -167,9 +167,8 @@ ul.tests {
 <h1>Greasemonkey Tests</h1>
 <?php if($useImportsService){ ?>
 <span>Using import service</span>
-<?php } else { ?>
-<span>Not using import service</span>
-<?php }?>
+<?php } ?>
+
 <div id="suites">
 <span>Available suites: </span>
 <ul>
