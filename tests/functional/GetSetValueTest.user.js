@@ -33,6 +33,7 @@ new TestSuite("getValue Tests", {
     var val = GM_getValue("testMissing");
     t.assert(val === undefined, "Unexpected value " + val);
     t.assert(typeof(val) == "undefined", "Unexpected type " + typeof(val) + "");
+    t.assert(val !== null, "Unexpected null : " + val);
   },
 });
 
