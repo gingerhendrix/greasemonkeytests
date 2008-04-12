@@ -15,5 +15,6 @@ namespace :ga do
     run "svn --quiet #{checkout} #{repository} #{release_path}"
     run "ln -nfs #{release_path} #{current_path}"
     run "cp #{release_path}/config/production/htaccess #{release_path}/.htaccess"
+    run "cp #{release_path}/config/production/environment.php #{release_path}/config/environment.php"    
   end
 end

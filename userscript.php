@@ -1,4 +1,6 @@
 <?php
+  require "config/environment.php";
+  
   $filename = $_GET['content'];
   $suiteArray = array_slice(explode("/", $filename), 1, -1);
   if(sizeof($suiteArray)>0){
@@ -7,7 +9,8 @@
     $suite = '*';
   }
 	$namespace = "http://gandrew.com/projects/GreasemonkeyTests/";
-  $testHarness = "http://localhost/workspace/GreasemonkeyTests/*?suite=$suite";
+  
+ // $testHarness = "http://localhost/workspace/GreasemonkeyTests/*?suite=$suite";
   $header = <<<END
 // Tests for Greasemonkey
 // version 0.1
