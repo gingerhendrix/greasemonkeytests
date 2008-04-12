@@ -1,5 +1,5 @@
 <?php
-$testHarness = "http://localhost/workspace/GreasemonkeyTests/*?suite=$suite";
+$testHarness = "http://localhost/workspace/GreasemonkeyTests/*";
 
 
 
