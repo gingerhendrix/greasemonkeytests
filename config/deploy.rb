@@ -14,5 +14,6 @@ namespace :ga do
   task :deploy do
     run "svn --quiet #{checkout} #{repository} #{release_path}"
     run "ln -nfs #{release_path} #{current_path}"
+    run "cp #{release_path}/config/production/htaccess #{release_path}/.htaccess"
   end
 end
