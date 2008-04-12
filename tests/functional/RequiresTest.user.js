@@ -4,13 +4,8 @@
 // @description   A series of tests for new gresemonkey import functionality
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
-// @require       ../../../MonkeyTest/js/Test.js
-// @require       ../../../MonkeyTest/js/TestSuite.js
-// @require       ../../../MonkeyTest/js/AbstractTestRunner.js
-// @require       ../../../MonkeyTest/js/BaseTestRunner.js
-// @require       ../../../MonkeyTest/js/SimpleTestRunner.js
-// @require       ../../../MonkeyTest/js/GreasemonkeyTestRunner.js
-// @require       ../../../MonkeyTest/js/TestManager.js
+// @require       ../../lib/MonkeyTest.js
+// @require       ../../lib/GreasemonkeyTestRunner.js
 // @require       ../../lib/library.js
 // @require       ../../lib/error.js
 // ==/UserScript==

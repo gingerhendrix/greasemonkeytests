@@ -4,13 +4,8 @@
 // @description   A series of tests for new gresemonkey import functionality
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
-// @require       ../../../MonkeyTest/js/Test.js
-// @require       ../../../MonkeyTest/js/TestSuite.js
-// @require       ../../../MonkeyTest/js/AbstractTestRunner.js
-// @require       ../../../MonkeyTest/js/BaseTestRunner.js
-// @require       ../../../MonkeyTest/js/SimpleTestRunner.js
-// @require       ../../../MonkeyTest/js/GreasemonkeyTestRunner.js
-// @require       ../../../MonkeyTest/js/TestManager.js
+// @require       ../../lib/MonkeyTest.js
+// @require       ../../lib/GreasemonkeyTestRunner.js
 // ==/UserScript==
 
 new TestSuite("getValue Tests", {
@@ -150,7 +145,13 @@ new TestSuite("setValue error tests", {
   },
   
   testIntegerOverflow : function(t){
-    GM_setValue("testIntegerOverflow", Math.pow(2,32));
+    try{
+      GM_setValue("testIntegerOverflow", Math.pow(2,32));
+      t.fail("Expected error to be thrown");
+    }catch(e){
+      t.assert(true, "Error expected");
+      t.throwAndPass(e);
+    }
     var val = GM_getValue("testIntegerOverflow");
     t.assert(val !== Math.pow(2,32), "Unexpected assertion success")
     t.assert(val === 0, "Unexpected value " + val);
@@ -158,7 +159,14 @@ new TestSuite("setValue error tests", {
   
   testDateOverflow : function(t){
     var d = new Date();
-    GM_setValue("testDateOverflow", Number(d));
+    try{
+      GM_setValue("testDateOverflow", Number(d));
+      t.fail("Expected error to be thrown");
+    }catch(e){
+      t.assert(true, "Error expected");
+      t.throwAndPass(e);
+    }
+
     var val = GM_getValue("testDateOverflow");
     t.assert(val !== Number(d), "Unexpected assertion success")
   }

@@ -1,0 +1,132 @@
+body{
+  padding: 20px;
+}
+.test{
+  width: 100%;
+  max-width: 960px;
+  border: 1px solid #666666;
+  background-color: #ffffff;
+  margin: 1em;
+  padding-bottom: 1em;
+}
+.test .name{
+  font-size: 1.2em;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  display: block;
+}
+
+.test .description{
+  padding-left: 2em;
+  display: block;
+}
+
+.test .result{
+  display: none;
+  padding-left: 2em;
+  font-weight: bold;
+  color: #aa0000;
+}
+
+.test .msg_failure{
+  color: #aa0000;
+}
+
+.test .msg_passed{
+  color: #006600;
+}
+.test .install{
+  padding-left: 2em;
+  padding-right: 1em;
+}
+
+.test .logTitle{
+  padding-left: 2em;
+  text-decoration: underline;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.test .log{
+  border: 1px solid #666666;
+  background-color: #ffffff;
+  
+  margin-right: 2em;
+  margin-left: 2em;
+  min-height: 2em;
+}
+
+.test.notinstalled{
+  background-color: #ffffaa;
+}
+
+.test.notinstalled .msg_notinstalled{
+  display: block;
+}
+
+.test.running{
+  background-color: #aaaaff;
+}
+
+
+.test.passed{
+  background-color: #aaffaa;
+}
+
+.test.passed .msg_passed{
+  display: block;
+}
+
+.test.failure {
+  background-color: #ffaaaa;
+}
+
+.test.failure .msg_failure{
+  display: block;
+}
+
+.test.error {
+  background-color: #ffaaaa;
+}
+
+.test.error .msg_error {
+  display: block;
+}
+
+ul.tests {
+ margin-left: 4em;
+}
+
+.tests .success {
+  color: #006600;
+  font-weight: bold;
+}
+
+.tests .failure, .tests .error {
+  color: #660000;
+  font-weight: bold;
+}
+
+
+#suites ul{
+  
+}
+
+#suites li{
+  float: left;
+  list-style-type: none;
+  margin-right: 2em;
+}
+
+#suites a.selected{
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#suites span{
+  float: left;
+  font-weight: bold;
+  margin-right: 2em;
+}
+
+

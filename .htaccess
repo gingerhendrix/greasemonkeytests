@@ -1,3 +1,3 @@
 AddType application/x-xpinstall .xpi
 RewriteEngine on
-RewriteRule (.*\.user\.js)$ /eclipse/GreasemonkeyTests/userscript.php?content=$1
+RewriteRule (.*\.user\.js)$ /workspace/GreasemonkeyTests/userscript.php?content=$1

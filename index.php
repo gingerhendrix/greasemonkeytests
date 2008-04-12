@@ -1,4 +1,5 @@
 <?php
+
   $importsServiceURL = "../GreasemonkeyImportsService/v2/greasemonkeyimports.php";
 
   function getDescription($userscript){
@@ -11,8 +12,9 @@
   }
   
   function getMeta($userscript){
+    //Very big text crashes php - should probably find a better method to extract header
     $metaPattern = '/==UserScript==(.)*==\/UserScript==/ms';
-	  if( preg_match($metaPattern, $userscript, $metaSections)){
+    if( preg_match($metaPattern, $userscript, $metaSections)){ //$userscript
       return $metaSections[0];
     }
   }
@@ -29,139 +31,7 @@ $useImportsService = $_GET["useImportsService"] ? true : false;
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/base/base-min.css">
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/fonts/fonts-min.css"> 
 
-<style>
-body{
-  padding: 20px;
-}
-.test{
-  width: 100%;
-  max-width: 960px;
-  border: 1px solid #666666;
-  background-color: #ffffff;
-  margin: 1em;
-  padding-bottom: 1em;
-}
-.test .name{
-  font-size: 1.2em;
-  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-  display: block;
-}
-
-.test .description{
-  padding-left: 2em;
-  display: block;
-}
-
-.test .result{
-  display: none;
-  padding-left: 2em;
-  font-weight: bold;
-  color: #aa0000;
-}
-
-.test .msg_failure{
-  color: #aa0000;
-}
-
-.test .msg_passed{
-  color: #006600;
-}
-.test .install{
-  padding-left: 2em;
-  padding-right: 1em;
-}
-
-.test .logTitle{
-  padding-left: 2em;
-  text-decoration: underline;
-  display: block;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-.test .log{
-  border: 1px solid #666666;
-  background-color: #ffffff;
-  
-  margin-right: 2em;
-  margin-left: 2em;
-  min-height: 2em;
-}
-
-.test.notinstalled{
-  background-color: #ffffaa;
-}
-
-.test.notinstalled .msg_notinstalled{
-  display: block;
-}
-
-.test.running{
-  background-color: #aaaaff;
-}
-
-
-.test.passed{
-  background-color: #aaffaa;
-}
-
-.test.passed .msg_passed{
-  display: block;
-}
-
-.test.failure {
-  background-color: #ffaaaa;
-}
-
-.test.failure .msg_failure{
-  display: block;
-}
-
-.test.error {
-  background-color: #ffaaaa;
-}
-
-.test.error .msg_error {
-  display: block;
-}
-
-ul.tests {
- margin-left: 4em;
-}
-
-.tests .success {
-  color: #006600;
-  font-weight: bold;
-}
-
-.tests .failure, .tests .error {
-  color: #660000;
-  font-weight: bold;
-}
-
-
-#suites ul{
-  
-}
-
-#suites li{
-  float: left;
-  list-style-type: none;
-  margin-right: 2em;
-}
-
-#suites a.selected{
-  font-weight: bold;
-  text-decoration: none;
-}
-
-#suites span{
-  float: left;
-  font-weight: bold;
-  margin-right: 2em;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 
 <body>
 <h1>Greasemonkey Tests</h1>
@@ -173,16 +43,15 @@ ul.tests {
 <span>Available suites: </span>
 <ul>
 <?php
+
 $dir = "tests/";
 if ($dh = opendir($dir)) {
  while (($file = readdir($dh)) !== false) {
    if(filetype($dir . $file) == "dir" && preg_match("/^\./", $file)==0){
 ?>
 <li>
-  <a href="index.php?suite=<?php echo $file ?>" 
-     <?php if(strcmp($file, $suite)==0){ echo "class='selected'"; } ?>
-  >
-    <?php echo $file ?>
+  <a href="index.php?suite=<?php echo $file ?>"  <?php  if(strcmp($file, $suite)==0){ echo "class='selected'"; } ?>  >
+    <?php  echo $file  ?>
   </a>
 </li>
 <?php
@@ -199,11 +68,13 @@ if ($dh = opendir($dir)) {
 $dir = "tests/".$suite."/"; 
 if ($dh = opendir($dir)) {
   while (($file = readdir($dh)) !== false) {
-    if(filetype($dir . $file) == "file"){
+
+    if(filetype($dir . $file) == "file" && preg_match("/.user.js$/", $file)==1){
+     
       $camelName = str_replace(".user.js", "", $file);
       $name = preg_replace("/([a-z])([A-Z])/", "$1 $2", $camelName);
-      $userscript = file_get_contents($dir. $file);
-      $description = getDescription($userscript);
+      //$userscript = file_get_contents($dir. $file);
+      //$description = getDescription($userscript); FIXME: Causes segfault on Ubuntu Hardy 
 ?>
 
 <div class="test notinstalled" id="<?php echo $camelName; ?>">
@@ -241,5 +112,4 @@ if ($dh = opendir($dir)) {
   }
   closedir($dh);
 }
-
 ?>
