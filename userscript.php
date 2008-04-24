@@ -31,6 +31,7 @@ END;
   function get_include_contents($filename) {
 	  global $namespace;
     global $testHarness;
+    global $libUrl;
     global $header;
     
 	   if (is_file($filename)) {

@@ -4,7 +4,7 @@
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
 //
-// @require       ../../lib/MonkeyTest.js
+// @require       ../../lib/monkeytest.js
 // @require       ../../lib/GreasemonkeyTestRunner.js
 //
 // @require       ../../lib/MochiKit/Base.js

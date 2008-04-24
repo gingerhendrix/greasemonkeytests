@@ -11,7 +11,7 @@
 // ==/UserScript==
 
 new TestSuite("XHRTests", (function(){
-  var testScriptUrl = "http://localhost/workspace/GreasemonkeyTests/lib/xhr.php";
+  var testScriptUrl = "<?php echo $libUrl ?>xhr.php";
   
   function assertResponseOk(t, response){
      t.assert(response.status == 200, "Expected response.status==200 got " +  response.status);
