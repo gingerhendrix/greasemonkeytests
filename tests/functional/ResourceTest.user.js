@@ -6,7 +6,7 @@
 // @description   Test resources 
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
-// @require       ../../lib/MonkeyTest.js
+// @require       ../../lib/monkeytest.js
 // @require       ../../lib/GreasemonkeyTestRunner.js
 // @resource text ../../lib/test1.txt
 // @resource text2    ../../lib/test2.txt
@@ -14,6 +14,7 @@
 // @resource 	shift-jis-text ../../lib/shift-jis-text.php
 // @resource  shift-jis-image ../../lib/japanese-text-image.png
 // ==/UserScript==
+
 
 new TestSuite("GM_getResourceText Tests", {
   testText : function(test){

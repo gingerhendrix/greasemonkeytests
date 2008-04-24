@@ -4,7 +4,7 @@
 // @description   A series of tests for new gresemonkey import functionality
 // @namespace     <?php echo $namespace ?> 
 // @include       <?php echo $testHarness ?> 
-// @require       ../../lib/MonkeyTest.js
+// @require       ../../lib/monkeytest.js
 // @require       ../../lib/GreasemonkeyTestRunner.js
 // ==/UserScript==
 
