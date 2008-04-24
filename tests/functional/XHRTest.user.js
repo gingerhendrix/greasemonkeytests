@@ -185,7 +185,7 @@ new TestSuite("XHRTests", (function(){
         assertResponseOk(t, response);
         headers = parseResponseHeaders(response.responseHeaders);
         t.assert(headers['Content-Type'] == "text/html", "Expected header Content-Type == text/html got " + headers['Content-Type']);
-        t.assert(headers['Content-Length'] == "6", "Expected header Content-Length == 2 got " + headers['Content-Length']);
+        t.assert(headers['Content-Length'] == "6", "Expected header Content-Length == 6 got " + headers['Content-Length'] +  " : " + response.responseText);
         t.assert(headers['Custom-Header'] == "blah", "Expected header Custom-Header == blah got " + headers['Custom-Header']);
       }, 5000);
       var xhr = GM_xmlhttpRequest({
@@ -198,13 +198,10 @@ new TestSuite("XHRTests", (function(){
     
     requestHeaders : function(t){
       var testHeaders = {
-          'Accept' : 'test/greasemonkey',
-          'Accept-Charset' : 'gm',
-          'Accept-Language' : 'en-gm',
-          'Accept-Encoding' : 'test',
+          'Accept' : 'text/xml',
+          'Accept-Charset' : 'en',
+          'Accept-Language' : 'en-us',
           'User-Agent' : "greasemonkey",
-          'Connection' : "conn",
-          'Host' : "example.org",
           'Referer' : "http://www.google.com"
         } 
         
