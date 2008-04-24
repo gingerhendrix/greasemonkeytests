@@ -6,8 +6,6 @@
 // @include       <?php echo $testHarness ?> 
 // @require       ../../lib/monkeytest.js
 // @require       ../../lib/GreasemonkeyTestRunner.js
-// #require       ../../../GreasemonkeyRepl/repl.js
-// @resource      dialog ../../../GreasemonkeyRepl/dialog.html
 // ==/UserScript==
 
 new TestSuite("XHRTests", (function(){
